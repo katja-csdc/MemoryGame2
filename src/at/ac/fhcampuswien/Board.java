@@ -11,6 +11,8 @@ import java.util.Collections;
 public class Board extends JFrame {
 
 
+
+
     private List<Card> cards;
     private Card selectedCard;
     private Card c1;
