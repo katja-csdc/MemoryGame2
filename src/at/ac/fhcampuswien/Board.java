@@ -10,20 +10,24 @@ import java.util.Collections;
 //serial//
 public class Board extends JFrame {
 
-
-
-
     private List<Card> cards;
     private Card selectedCard;
     private Card c1;
     private Card c2;
     Icon icon = new ImageIcon("src/images/icon.png");
     private Timer t;
+    private int whoseTurn = 1;
+    String player1;
+    String player2;
 
     public Board() {
         int pairs = 10;
         List<Card> cardsList = new ArrayList<Card>();
         List<Icon> cardVals = new ArrayList<Icon>();
+
+        player1 = JOptionPane.showInputDialog(this, "Your Player Name, Player 1: ", "Choose your Name", 0);
+        player2 = JOptionPane.showInputDialog(this, "Your Player Name, Player 2: ", "Choose your Name", 0);
+
         for (int i = 0; i < pairs; i++) {
             String fileName = "src/images/" + (i + 1) + ".png";
             Icon b = new ImageIcon(fileName);
@@ -59,11 +63,19 @@ public class Board extends JFrame {
         for (Card c : cards) {
             pane.add(c);
         }
-        setTitle("Memory Match");
+        setTitle("Memory Game");
     }
 
     public void doTurn() {
         if (c1 == null && c2 == null) {
+
+            if (whoseTurn == 1){
+                JOptionPane.showMessageDialog(this, player1 + "'s Turn" );
+                whoseTurn--;
+            }else{
+                JOptionPane.showMessageDialog(this, player2 + "'s Turn" );
+                whoseTurn++;
+            }
             c1 = selectedCard;
             c1.setIcon(c1.getPic());
 
