@@ -70,10 +70,10 @@ public class Board extends JFrame {
         if (c1 == null && c2 == null) {
 
             if (whoseTurn == 1){
-                JOptionPane.showMessageDialog(this, player1 + "'s Turn" );
+                JOptionPane.showMessageDialog(this, player1 + "'s Turn", "Current Player", 0);
                 whoseTurn--;
             }else{
-                JOptionPane.showMessageDialog(this, player2 + "'s Turn" );
+                JOptionPane.showMessageDialog(this, player2 + "'s Turn", "Current Player", 0);
                 whoseTurn++;
             }
             c1 = selectedCard;
