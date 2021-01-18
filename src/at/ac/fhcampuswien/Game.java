@@ -10,7 +10,7 @@ class Main {
         b.setLocation(500, 250);
         b.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         b.setIconImage(Toolkit.getDefaultToolkit()
-                .getImage("C:\\Users\\queen\\IdeaProjects\\MemoryGame2\\src\\images\\IconNew.jpg"));
+                .getImage("IdeaProjects/MemoryGame2/src/images/IconNew.jpg"));
         b.pack();
         b.setVisible(true);
 
