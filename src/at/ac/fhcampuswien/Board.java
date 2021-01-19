@@ -16,17 +16,16 @@ public class Board extends JFrame {
     private Card c2;
     Icon icon = new ImageIcon("src/images/icon.png");
     private Timer t;
-    private int whoseTurn = 1;
-    String player1;
-    String player2;
+    public int turn = 1;
+    Player p = new Player();
 
     public Board() {
         int pairs = 10;
         List<Card> cardsList = new ArrayList<Card>();
         List<Icon> cardVals = new ArrayList<Icon>();
 
-        player1 = JOptionPane.showInputDialog(this, "Your Player Name, Player 1: ", "Choose your Name", 0);
-        player2 = JOptionPane.showInputDialog(this, "Your Player Name, Player 2: ", "Choose your Name", 0);
+        //implementation of the input messages -LILI
+        p.inputPlayerName();
 
         for (int i = 0; i < pairs; i++) {
             String fileName = "src/images/" + (i + 1) + ".png";
@@ -58,24 +57,33 @@ public class Board extends JFrame {
 
         t.setRepeats(false);
 
-        Container pane = getContentPane();
+        //changed the content pane to a JPanel to add borders, only then u can see the colorswitch -LILI
+        JPanel pane = new JPanel();
         pane.setLayout(new GridLayout(4, 5));
+        //creates the border with the pane in the center -LILI
+        pane.setBorder(BorderFactory.createEmptyBorder(11,11,11,11));
+        //sets the Background for the first player -LILI
+        pane.setBackground(Color.PINK);
         for (Card c : cards) {
             pane.add(c);
         }
+        setContentPane(pane);
         setTitle("Memory Game");
     }
+    //summary: switches Background color for each player -LILI
+    public void switchColor(){
+        if (turn == 1){
+            getContentPane().setBackground(Color.ORANGE);
+            turn--;
+        }else{
+            getContentPane().setBackground(Color.PINK);
+            turn++;
+        }
+    }
 
-    public void doTurn() {
+    public void doTurn(){
+
         if (c1 == null && c2 == null) {
-
-            if (whoseTurn == 1){
-                JOptionPane.showMessageDialog(this, player1 + "'s Turn", "Current Player", 0);
-                whoseTurn--;
-            }else{
-                JOptionPane.showMessageDialog(this, player2 + "'s Turn", "Current Player", 0);
-                whoseTurn++;
-            }
             c1 = selectedCard;
             c1.setIcon(c1.getPic());
 
@@ -90,6 +98,10 @@ public class Board extends JFrame {
     }
 
     public void checkCards() {
+        //implementation of the colorswitch and the playerswitch -LILI
+        switchColor();
+        p.currentPlayer();
+
         if (c1.getFileName() == c2.getFileName()) {
             c1.setEnabled(false);
             c2.setEnabled(false);

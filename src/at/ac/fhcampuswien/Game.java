@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 class Game {
+
     public static void main(String[] args) {
         Board b = new Board();
         b.setPreferredSize(new Dimension(500, 500));
