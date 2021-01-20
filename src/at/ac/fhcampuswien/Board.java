@@ -16,6 +16,7 @@ public class Board extends JFrame {
     private Card c2;
     Icon icon = new ImageIcon("src/images/icon.png"); //upside down image
     private Timer t;
+    //i need that int for the colorswitch -LILI
     public int turn = 1;
     Player p = new Player();
 
@@ -70,7 +71,7 @@ public class Board extends JFrame {
         setContentPane(pane);
         setTitle("Memory Game");
     }
-    //summary: switches Background color for each player -LILI
+    //switches Background color for each player -LILI
     public void switchColor(){
         if (turn == 1){
             getContentPane().setBackground(Color.ORANGE);
