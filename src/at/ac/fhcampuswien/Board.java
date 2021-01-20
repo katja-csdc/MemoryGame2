@@ -14,7 +14,7 @@ public class Board extends JFrame {
     private Card selectedCard;
     private Card c1;
     private Card c2;
-    Icon icon = new ImageIcon("src/images/icon.png");
+    Icon icon = new ImageIcon("src/images/icon.png"); //upside down image
     private Timer t;
     //i need that int for the colorswitch -LILI
     public int turn = 1;
@@ -35,7 +35,7 @@ public class Board extends JFrame {
             cardVals.add(b);
         }
         for (Icon val : cardVals) {
-            Card c = new Card(icon);
+            Card c = new Card(icon); //that the card can have an image
             c.setPic(val);
             c.setFileName(c.getPic().hashCode());
             c.addActionListener(new ActionListener() {
@@ -47,7 +47,7 @@ public class Board extends JFrame {
             cardsList.add(c);
 
         }
-        Collections.shuffle(cardsList);
+        Collections.shuffle(cardsList); //class method using random to shuffle given list of cards
         this.cards = cardsList;
 
         t = new Timer(750, new ActionListener() {
@@ -84,13 +84,13 @@ public class Board extends JFrame {
 
     public void doTurn(){
 
-        if (c1 == null && c2 == null) {
+        if (c1 == null && c2 == null) {  //set the image return if not match
+
             c1 = selectedCard;
             c1.setIcon(c1.getPic());
-
         }
 
-        if (c1 != null && c1 != selectedCard && c2 == null) {
+        if (c1 != null && c1 != selectedCard && c2 == null) { //set the image return if not match
             c2 = selectedCard;
             c2.setIcon(c2.getPic());
 
