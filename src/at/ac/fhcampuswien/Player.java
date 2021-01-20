@@ -17,12 +17,13 @@ public class Player extends Component {
         player2 = JOptionPane.showInputDialog(this,
                 "Your Player Name, Player 2: ", "Choose your Name", 0);
 
-        JOptionPane.showMessageDialog(this,
-                player1 + "'s Turn", "Current Player", 0);
+       JOptionPane.showMessageDialog(this,
+              player1 + "'s Turn", "Current Player", 0);
     }
 
     //also messages, starts with the person whose turn is the second and switches then between the two players -LILI
     public void currentPlayer() {
+
         if (whoseTurn == 1){
             JOptionPane.showMessageDialog(this,
                     player2 + "'s Turn", "Current Player", 0);

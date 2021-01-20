@@ -6,6 +6,8 @@ import java.awt.*;
 class Game {
 
     public static void main(String[] args) {
+        Rules rules =new Rules();
+        rules.printRules();
         Board b = new Board();
         b.setPreferredSize(new Dimension(500, 500));
         b.setLocation(500, 250);
@@ -14,5 +16,6 @@ class Game {
                 .getImage("src/images/IconNew.jpg"));
         b.pack();
         b.setVisible(true);
+
     }
 }
