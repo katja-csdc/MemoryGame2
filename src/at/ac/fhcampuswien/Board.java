@@ -18,6 +18,8 @@ public class Board extends JFrame {
     private Timer t;
     //i need that int for the colorswitch -LILI
     public int turn = 1;
+    public int score1 = 0;
+    public int score2 = 0;
     Player p = new Player();
 
     public Board() {
@@ -62,7 +64,7 @@ public class Board extends JFrame {
         JPanel pane = new JPanel();
         pane.setLayout(new GridLayout(4, 5));
         //creates the border with the pane in the center -LILI
-        pane.setBorder(BorderFactory.createEmptyBorder(11,11,11,11));
+        pane.setBorder(BorderFactory.createEmptyBorder(11, 11, 11, 11));
         //sets the Background for the first player -LILI
         pane.setBackground(Color.PINK);
         for (Card c : cards) {
@@ -71,18 +73,19 @@ public class Board extends JFrame {
         setContentPane(pane);
         setTitle("Memory Game");
     }
+
     //switches Background color for each player -LILI
-    public void switchColor(){
-        if (turn == 1){
+    public void switchColor() {
+        if (turn == 1) {
             getContentPane().setBackground(Color.ORANGE);
             turn--;
-        }else{
+        } else {
             getContentPane().setBackground(Color.PINK);
             turn++;
         }
     }
 
-    public void doTurn(){
+    public void doTurn() {
 
         if (c1 == null && c2 == null) {  //set the image return if not match
 
@@ -103,21 +106,62 @@ public class Board extends JFrame {
         switchColor();
         p.currentPlayer();
 
-        if (c1.getFileName() == c2.getFileName()) {
-            c1.setEnabled(false);
-            c2.setEnabled(false);
-            c1.setMatched(true);
-            c2.setMatched(true);
-            if (this.isGameWon()) {
-                JOptionPane.showMessageDialog(this, "You win!");
-                System.exit(0);
+        if (turn == 1) {
+            if (c1.getFileName() == c2.getFileName()) {
+                c1.setEnabled(false);
+                c2.setEnabled(false);
+                c1.setMatched(true);
+                c2.setMatched(true);
+                score1++;
+                if (this.isGameWon()) {
+                    if (score1 == score2) {
+                        JOptionPane.showMessageDialog(this,
+                                p.player2 + " , your score is: " + score2 + "."
+                                        + p.player1 + " , your score is: " + score1 + "."
+                                        + " Nobody wins, it's a draw, congrats?");
+                        System.exit(0);
+                    }else if (score1 > score2){
+                        JOptionPane.showMessageDialog(this,
+                                p.player1 + " You win!, Your score is: " + score1);
+                        System.exit(0);
+                    }
+                }
             }
-        } else {
+        } else{
             c1.setIcon(icon);
             c1.setIconTextGap(-10);
             c2.setIcon(icon);
             c2.setIconTextGap(-10);
         }
+
+        if (turn == 0){
+            if (c1.getFileName() == c2.getFileName()) {
+                c1.setEnabled(false);
+                c2.setEnabled(false);
+                c1.setMatched(true);
+                c2.setMatched(true);
+                score2++;
+                if (this.isGameWon()) {
+                    if (score2 == score1){
+                        JOptionPane.showMessageDialog(this,
+                                p.player2 + " , your score is: " + score2 + "."
+                                        + p.player1 + " , your score is: " + score1 + "."
+                                        + " Nobody wins, it's a draw, congrats?");
+                        System.exit(0);
+                    }else if (score2 > score1){
+                        JOptionPane.showMessageDialog(this,
+                                p.player2 + " You win!, Your score is: " + score2);
+                        System.exit(0);
+                    }
+                }
+            }
+        } else{
+            c1.setIcon(icon);
+            c1.setIconTextGap(-10);
+            c2.setIcon(icon);
+            c2.setIconTextGap(-10);
+        }
+
         c1 = null;
         c2 = null;
     }
@@ -130,5 +174,4 @@ public class Board extends JFrame {
         }
         return true;
     }
-
 }
