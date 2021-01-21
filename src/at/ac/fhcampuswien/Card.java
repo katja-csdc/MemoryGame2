@@ -13,6 +13,11 @@ public class Card extends JButton {
         super(icon);
     }
 
+    public Card() {
+
+    }
+
+
     public int getFileName() {
         return fileName;
     }

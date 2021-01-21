@@ -120,13 +120,15 @@ public class Board extends JFrame {
                                         + p.player1 + " , your score is: " + score1 + "."
                                         + " Nobody wins, it's a draw, congrats?");
                         System.exit(0);
-                    }else{
+                    }else if(score1>score2){
                         JOptionPane.showMessageDialog(this,
                                 p.player1 + " You win!, Your score is: " + score1);
                         System.exit(0);
-                    }
+                    } else{JOptionPane.showMessageDialog(this,
+                            p.player2 + " You win!, Your score is: " + score2);
+                        System.exit(0);}
                 }
-            }
+                 }
         } else{
             c1.setIcon(icon);
             c1.setIconTextGap(-10);
@@ -148,11 +150,13 @@ public class Board extends JFrame {
                                         + p.player1 + " , your score is: " + score1 + "."
                                         + " Nobody wins, it's a draw, congrats?");
                         System.exit(0);
-                    }else{
+                    }else if (score1<score2){
                         JOptionPane.showMessageDialog(this,
                                 p.player2 + " You win!, Your score is: " + score2);
                         System.exit(0);
-                    }
+                    } else{JOptionPane.showMessageDialog(this,
+                            p.player1 + " You win!, Your score is: " + score1);
+                        System.exit(0);}
                 }
             }
         } else{
