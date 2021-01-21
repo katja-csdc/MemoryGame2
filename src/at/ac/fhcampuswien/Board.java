@@ -31,7 +31,7 @@ public class Board extends JFrame {
         p.inputPlayerName();
 
         for (int i = 0; i < pairs; i++) {
-            String fileName = "src/images/" + (i + 1) + ".png";
+            String fileName = "src/images/" + (i + 1) + ".jpg";
             Icon b = new ImageIcon(fileName);
             cardVals.add(b);
             cardVals.add(b);
