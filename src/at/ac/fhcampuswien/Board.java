@@ -122,11 +122,13 @@ public class Board extends JFrame {
                         System.exit(0);
                     }else if(score1 > score2){
                         JOptionPane.showMessageDialog(this,
-                                p.player1 + " You win!, Your score is: " + score1);
+                                p.player1 + " You win!, Your score is: " + score1
+                                , "The Winner is...", 0);
                         System.exit(0);
                     } else{
                         JOptionPane.showMessageDialog(this,
-                            p.player2 + " You win!, Your score is: " + score2);
+                            p.player2 + " You win!, Your score is: " + score2
+                                , "The Winner is...", 0);
                         System.exit(0);}
                 }
                  }
@@ -153,11 +155,13 @@ public class Board extends JFrame {
                         System.exit(0);
                     }else if (score1 < score2){
                         JOptionPane.showMessageDialog(this,
-                                p.player2 + " You win!, Your score is: " + score2);
+                                p.player2 + " You win!, Your score is: " + score2
+                                , "The Winner is...", 0);
                         System.exit(0);
                     } else{
                         JOptionPane.showMessageDialog(this,
-                            p.player1 + " You win!, Your score is: " + score1);
+                            p.player1 + " You win!, Your score is: " + score1
+                                , "The Winner is...", 0);
                         System.exit(0);}
                 }
             }
