@@ -120,7 +120,7 @@ public class Board extends JFrame {
                                         + p.player1 + " , your score is: " + score1 + "."
                                         + " Nobody wins, it's a draw, congrats?");
                         System.exit(0);
-                    }else if (score1 > score2){
+                    }else{
                         JOptionPane.showMessageDialog(this,
                                 p.player1 + " You win!, Your score is: " + score1);
                         System.exit(0);
@@ -148,7 +148,7 @@ public class Board extends JFrame {
                                         + p.player1 + " , your score is: " + score1 + "."
                                         + " Nobody wins, it's a draw, congrats?");
                         System.exit(0);
-                    }else if (score2 > score1){
+                    }else{
                         JOptionPane.showMessageDialog(this,
                                 p.player2 + " You win!, Your score is: " + score2);
                         System.exit(0);
