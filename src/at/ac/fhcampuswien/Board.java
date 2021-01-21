@@ -116,15 +116,16 @@ public class Board extends JFrame {
                 if (this.isGameWon()) {
                     if (score1 == score2) {
                         JOptionPane.showMessageDialog(this,
-                                p.player2 + " , your score is: " + score2 + "."
+                                p.player2 + " , your score is: " + score2 + ". "
                                         + p.player1 + " , your score is: " + score1 + "."
                                         + " Nobody wins, it's a draw, congrats?");
                         System.exit(0);
-                    }else if(score1>score2){
+                    }else if(score1 > score2){
                         JOptionPane.showMessageDialog(this,
                                 p.player1 + " You win!, Your score is: " + score1);
                         System.exit(0);
-                    } else{JOptionPane.showMessageDialog(this,
+                    } else{
+                        JOptionPane.showMessageDialog(this,
                             p.player2 + " You win!, Your score is: " + score2);
                         System.exit(0);}
                 }
@@ -146,15 +147,16 @@ public class Board extends JFrame {
                 if (this.isGameWon()) {
                     if (score2 == score1){
                         JOptionPane.showMessageDialog(this,
-                                p.player2 + " , your score is: " + score2 + "."
+                                p.player2 + " , your score is: " + score2 + ". "
                                         + p.player1 + " , your score is: " + score1 + "."
                                         + " Nobody wins, it's a draw, congrats?");
                         System.exit(0);
-                    }else if (score1<score2){
+                    }else if (score1 < score2){
                         JOptionPane.showMessageDialog(this,
                                 p.player2 + " You win!, Your score is: " + score2);
                         System.exit(0);
-                    } else{JOptionPane.showMessageDialog(this,
+                    } else{
+                        JOptionPane.showMessageDialog(this,
                             p.player1 + " You win!, Your score is: " + score1);
                         System.exit(0);}
                 }
