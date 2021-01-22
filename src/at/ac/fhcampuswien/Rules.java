@@ -17,7 +17,7 @@ public class Rules {
         JOptionPane.showMessageDialog(null, "Memory Game", "Team Profi", JOptionPane.WHEN_IN_FOCUSED_WINDOW, icon);
 
         return JOptionPane.showOptionDialog(null, "<html>  <div align='center'><h2>Game Rules<h2></div>" +
-                        "<u>The following rules mustn't be ignored and must be adhered to as to win!\n  " +
+                        "*The following rules mustn't be ignored and must be adhered to as to win!\n" +
                         "* All cards will be hidden at the start.\n" +
                         "* The players will take turns turning around 2 cards each and remembering their\n" +
                         "* position.\n" +
