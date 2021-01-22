@@ -106,29 +106,28 @@ public class Board extends JFrame {
         switchColor();
        p.currentPlayer();
 
-
         if (turn == 1 ){
             if( c1.getFileName() == c2.getFileName()) {
                 c1.setEnabled(false);
                 c2.setEnabled(false);
                 c1.setMatched(true);
                 c2.setMatched(true);
-                score1++; p.secondChance();
+                score1++;
                 if (this.isGameWon()) {
                     if (score1 == score2) {
                         JOptionPane.showMessageDialog(this,
-                                p.player2 + " , your score is: " + score2 + ". "
-                                        + p.player1 + " , your score is: " + score1 + "."
+                                p.player2 + " , your score is: " + score1 + ". "
+                                        + p.player1 + " , your score is: " + score2 + "."
                                         + " Nobody wins, it's a draw, congrats?");
                         System.exit(0);
                     }else if(score1 > score2){
                         JOptionPane.showMessageDialog(this,
-                                p.player1 + " You win!, Your score is: " + score1
+                                p.player2 + " You win!, Your score is: " + score1
                                 , "The Winner is...", 0);
                         System.exit(0);
                     } else{
                         JOptionPane.showMessageDialog(this,
-                            p.player2 + " You win!, Your score is: " + score2
+                            p.player1 + " You win!, Your score is: " + score2
                                 , "The Winner is...", 0);
                         System.exit(0);}
                 }
@@ -146,22 +145,22 @@ public class Board extends JFrame {
                 c2.setEnabled(false);
                 c1.setMatched(true);
                 c2.setMatched(true);
-                score2++;p.secondChance();
+                score2++;
                 if (this.isGameWon()) {
                     if (score2 == score1){
                         JOptionPane.showMessageDialog(this,
-                                p.player2 + " , your score is: " + score2 + ". "
-                                        + p.player1 + " , your score is: " + score1 + "."
+                                p.player2 + " , your score is: " + score1 + ". "
+                                        + p.player1 + " , your score is: " + score2 + "."
                                         + " Nobody wins, it's a draw, congrats?");
                         System.exit(0);
                     }else if (score1 < score2){
                         JOptionPane.showMessageDialog(this,
-                                p.player2 + " You win!, Your score is: " + score2
+                                p.player1 + " You win!, Your score is: " + score2
                                 , "The Winner is...", 0);
                         System.exit(0);
                     } else{
                         JOptionPane.showMessageDialog(this,
-                            p.player1 + " You win!, Your score is: " + score1
+                            p.player2 + " You win!, Your score is: " + score1
                                 , "The Winner is...", 0);
                         System.exit(0);}
                 }
@@ -170,8 +169,9 @@ public class Board extends JFrame {
             c1.setIcon(icon);
             c1.setIconTextGap(-10);
             c2.setIcon(icon);
-            c2.setIconTextGap(-10);}
-                c1 = null;
+            c2.setIconTextGap(-10);
+        }
+        c1 = null;
         c2 = null;
     }
 
