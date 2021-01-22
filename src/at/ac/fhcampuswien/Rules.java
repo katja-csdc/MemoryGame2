@@ -22,8 +22,8 @@ public class Rules {
                         "* The players will take turns turning around 2 cards each and remembering their\n" +
                         "* position.\n" +
                         "* Clicked card pairs will be shown for 2 seconds.\n" +
-                        "* If they are identical the cards won't be clickable anymore \n" +
-                        "* If they aren't identical the cards will turn around again ", "Game Rules", JOptionPane.YES_NO_CANCEL_OPTION,
+                        "* If they are identical the cards won't be clickable anymore. \n" +
+                        "* If they aren't identical the cards will turn around again. ", "Game Rules", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE, icon, options, options[0]);
     }
 }
