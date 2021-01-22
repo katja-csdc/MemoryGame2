@@ -76,7 +76,7 @@ public class Board extends JFrame {
 
     //switches Background color for each player -LILI
     public void switchColor() {
-        if (turn == 1) {
+        if (turn == 1 ) {
             getContentPane().setBackground(Color.ORANGE);
             turn--;
         } else {
@@ -104,15 +104,16 @@ public class Board extends JFrame {
     public void checkCards() {
         //implementation of the colorswitch and the playerswitch -LILI
         switchColor();
-        p.currentPlayer();
+       p.currentPlayer();
 
-        if (turn == 1) {
-            if (c1.getFileName() == c2.getFileName()) {
+
+        if (turn == 1 ){
+            if( c1.getFileName() == c2.getFileName()) {
                 c1.setEnabled(false);
                 c2.setEnabled(false);
                 c1.setMatched(true);
                 c2.setMatched(true);
-                score1++;
+                score1++; p.secondChance();
                 if (this.isGameWon()) {
                     if (score1 == score2) {
                         JOptionPane.showMessageDialog(this,
@@ -131,13 +132,13 @@ public class Board extends JFrame {
                                 , "The Winner is...", 0);
                         System.exit(0);}
                 }
-                 }
-        } else{
+                 }}
+        else{
             c1.setIcon(icon);
             c1.setIconTextGap(-10);
             c2.setIcon(icon);
-            c2.setIconTextGap(-10);
-        }
+            c2.setIconTextGap(-10); }
+
 
         if (turn == 0){
             if (c1.getFileName() == c2.getFileName()) {
@@ -145,7 +146,7 @@ public class Board extends JFrame {
                 c2.setEnabled(false);
                 c1.setMatched(true);
                 c2.setMatched(true);
-                score2++;
+                score2++;p.secondChance();
                 if (this.isGameWon()) {
                     if (score2 == score1){
                         JOptionPane.showMessageDialog(this,
@@ -169,10 +170,8 @@ public class Board extends JFrame {
             c1.setIcon(icon);
             c1.setIconTextGap(-10);
             c2.setIcon(icon);
-            c2.setIconTextGap(-10);
-        }
-
-        c1 = null;
+            c2.setIconTextGap(-10);}
+                c1 = null;
         c2 = null;
     }
 
@@ -183,5 +182,4 @@ public class Board extends JFrame {
             }
         }
         return true;
-    }
-}
+    }}

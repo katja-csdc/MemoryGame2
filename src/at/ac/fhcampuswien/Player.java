@@ -24,14 +24,25 @@ public class Player extends Component {
     //also messages, starts with the person whose turn is the second and switches then between the two players -LILI
     public void currentPlayer() {
 
+
         if (whoseTurn == 1){
             JOptionPane.showMessageDialog(this,
-                    player2 + "'s Turn", "Current Player", 0);
+                    player1 + "'s Turn", "Current Player", 0);
+
             whoseTurn--;
         }else{
             JOptionPane.showMessageDialog(this,
-                    player1 + "'s Turn", "Current Player", 0);
+                    player2 + "'s Turn", "Current Player", 0);
             whoseTurn++;
+        }
+    }
+    public void secondChance(){
+
+        if (whoseTurn==1){
+            JOptionPane.showMessageDialog(this,
+                    player1 + "'s Turn again", "Current Player", 0);}
+        else{  JOptionPane.showMessageDialog(this,
+                player2 + "'s Turn again", "Current Player", 0);
         }
     }
 }
