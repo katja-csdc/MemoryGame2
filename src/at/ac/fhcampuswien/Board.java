@@ -15,7 +15,6 @@ public class Board extends JFrame {
     private Card c1;
     private Card c2;
     Icon icon = new ImageIcon("src/images/icon.png"); //upside down image
-    private Timer t;
     //i need that int for the colorswitch -LILI
     public int turn = 1;
     public int score1 = 0;
@@ -37,7 +36,7 @@ public class Board extends JFrame {
             cardVals.add(b);
         }
         for (Icon val : cardVals) {
-            Card c = new Card(icon); //that the card can have an image
+            Card c = new Card(icon); //so that the card can have an image (Icon)
             c.setPic(val);
             c.setFileName(c.getPic().hashCode());
             c.addActionListener(new ActionListener() {
@@ -52,13 +51,6 @@ public class Board extends JFrame {
         Collections.shuffle(cardsList); //class method using random to shuffle given list of cards
         this.cards = cardsList;
 
-        t = new Timer(750, new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                checkCards();
-            }
-        });
-
-        t.setRepeats(false);
 
         //changed the content pane to a JPanel to add borders, only then u can see the colorswitch -LILI
         JPanel pane = new JPanel();
@@ -76,7 +68,7 @@ public class Board extends JFrame {
 
     //switches Background color for each player -LILI
     public void switchColor() {
-        if (turn == 1 ) {
+        if (turn == 1) {
             getContentPane().setBackground(Color.ORANGE);
             turn--;
         } else {
@@ -87,27 +79,27 @@ public class Board extends JFrame {
 
     public void doTurn() {
 
-        if (c1 == null && c2 == null) {  //set the image return if not match
+        if (c1 == null && c2 == null) {  //set the image back if not matched
 
             c1 = selectedCard;
             c1.setIcon(c1.getPic());
         }
 
-        if (c1 != null && c1 != selectedCard && c2 == null) { //set the image return if not match
+        if (c1 != null && c1 != selectedCard && c2 == null) { //set the image back if not matched
             c2 = selectedCard;
             c2.setIcon(c2.getPic());
 
-            t.start();
+
         }
     }
 
     public void checkCards() {
         //implementation of the colorswitch and the playerswitch -LILI
         switchColor();
-       p.currentPlayer();
+        p.currentPlayer();
 
-        if (turn == 1 ){
-            if( c1.getFileName() == c2.getFileName()) {
+        if (turn == 1) {
+            if (c1.getFileName() == c2.getFileName()) {
                 c1.setEnabled(false);
                 c2.setEnabled(false);
                 c1.setMatched(true);
@@ -120,26 +112,28 @@ public class Board extends JFrame {
                                         + p.player1 + " , your score is: " + score2 + "."
                                         + " Nobody wins, it's a draw, congrats?");
                         System.exit(0);
-                    }else if(score1 > score2){
+                    } else if (score1 > score2) {
                         JOptionPane.showMessageDialog(this,
                                 p.player2 + " You win!, Your score is: " + score1
                                 , "The Winner is...", 0);
                         System.exit(0);
-                    } else{
+                    } else {
                         JOptionPane.showMessageDialog(this,
-                            p.player1 + " You win!, Your score is: " + score2
+                                p.player1 + " You win!, Your score is: " + score2
                                 , "The Winner is...", 0);
-                        System.exit(0);}
+                        System.exit(0);
+                    }
                 }
-                 }}
-        else{
+            }
+        } else {
             c1.setIcon(icon);
             c1.setIconTextGap(-10);
             c2.setIcon(icon);
-            c2.setIconTextGap(-10); }
+            c2.setIconTextGap(-10);
+        }
 
 
-        if (turn == 0){
+        if (turn == 0) {
             if (c1.getFileName() == c2.getFileName()) {
                 c1.setEnabled(false);
                 c2.setEnabled(false);
@@ -147,25 +141,26 @@ public class Board extends JFrame {
                 c2.setMatched(true);
                 score2++;
                 if (this.isGameWon()) {
-                    if (score2 == score1){
+                    if (score2 == score1) {
                         JOptionPane.showMessageDialog(this,
                                 p.player2 + " , your score is: " + score1 + ". "
                                         + p.player1 + " , your score is: " + score2 + "."
                                         + " Nobody wins, it's a draw, congrats?");
                         System.exit(0);
-                    }else if (score1 < score2){
+                    } else if (score1 < score2) {
                         JOptionPane.showMessageDialog(this,
                                 p.player1 + " You win!, Your score is: " + score2
                                 , "The Winner is...", 0);
                         System.exit(0);
-                    } else{
+                    } else {
                         JOptionPane.showMessageDialog(this,
-                            p.player2 + " You win!, Your score is: " + score1
+                                p.player2 + " You win!, Your score is: " + score1
                                 , "The Winner is...", 0);
-                        System.exit(0);}
+                        System.exit(0);
+                    }
                 }
             }
-        } else{
+        } else {
             c1.setIcon(icon);
             c1.setIconTextGap(-10);
             c2.setIcon(icon);
@@ -182,4 +177,5 @@ public class Board extends JFrame {
             }
         }
         return true;
-    }}
+    }
+}
