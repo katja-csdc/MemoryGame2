@@ -15,6 +15,7 @@ public class Board extends JFrame {
     private Card c1;
     private Card c2;
     Icon icon = new ImageIcon("src/images/icon.png"); //upside down image
+    private Timer t;
     //i need that int for the colorswitch -LILI
     public int turn = 1;
     public int score1 = 0;
@@ -50,7 +51,12 @@ public class Board extends JFrame {
         }
         Collections.shuffle(cardsList); //class method using random to shuffle given list of cards
         this.cards = cardsList;
-
+        t = new Timer(750, new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                checkCards();
+            }
+        });
+        t.setRepeats(false);
 
         //changed the content pane to a JPanel to add borders, only then u can see the colorswitch -LILI
         JPanel pane = new JPanel();
@@ -89,7 +95,7 @@ public class Board extends JFrame {
             c2 = selectedCard;
             c2.setIcon(c2.getPic());
 
-
+            t.start();
         }
     }
 
