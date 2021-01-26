@@ -111,7 +111,7 @@ public class Board extends JFrame {
                 c1.setMatched(true);
                 c2.setMatched(true);
                 score1++;
-                if (this.isGameWon()) {
+                if (this.isGameOver()) {
                     if (score1 == score2) {
                         JOptionPane.showMessageDialog(this,
                                 p.player2 + " , your score is: " + score1 + ". "
@@ -146,7 +146,7 @@ public class Board extends JFrame {
                 c1.setMatched(true);
                 c2.setMatched(true);
                 score2++;
-                if (this.isGameWon()) {
+                if (this.isGameOver()) {
                     if (score2 == score1) {
                         JOptionPane.showMessageDialog(this,
                                 p.player2 + " , your score is: " + score1 + ". "
@@ -176,7 +176,7 @@ public class Board extends JFrame {
         c2 = null;
     }
 
-    public boolean isGameWon() {
+    public boolean isGameOver() {
         for (Card c : this.cards) {
             if (c.getMatched() == false) {
                 return false;

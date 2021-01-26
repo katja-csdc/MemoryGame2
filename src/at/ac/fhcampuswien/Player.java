@@ -13,12 +13,12 @@ public class Player extends Component {
     //is first -LILI
     public void inputPlayerName() {
         player1 = JOptionPane.showInputDialog(this,
-                "What's your nickname, Player 1? ", "Choose your Nickname", 0);
+                "What's your nickname, Player 1? ", "Choose your Nickname", 1);
         player2 = JOptionPane.showInputDialog(this,
-                "What's your nickname, Player 2? ", "Choose your Nickname", 0);
+                "What's your nickname, Player 2? ", "Choose your Nickname", 1);
 
        JOptionPane.showMessageDialog(this,
-              player1 + "'s Turn", "Current Player", 0);
+              player1 + "'s Turn", "Current Player", 1);
     }
 
     //also messages, starts with the person whose turn is the second and switches then between the two players -LILI
@@ -26,12 +26,12 @@ public class Player extends Component {
 
         if (whoseTurn == 1){
             JOptionPane.showMessageDialog(this,
-                    player2 + "'s Turn", "Current Player", 0);
+                    player2 + "'s Turn", "Current Player", 1);
 
             whoseTurn--;
         }else{
             JOptionPane.showMessageDialog(this,
-                    player1 + "'s Turn", "Current Player", 0);
+                    player1 + "'s Turn", "Current Player", 1);
             whoseTurn++;
         }
     }
